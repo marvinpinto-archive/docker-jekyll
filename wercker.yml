@@ -12,6 +12,13 @@ build:
         code: |
           sudo docker build --no-cache --rm -t marvin/jekyll .
 
+  after-steps:
+    - wouter/irc-notify:
+        server: irc.freenode.net
+        port: 6667
+        nickname: wercker
+        channel: $IRC_CHANNEL
+
 deploy:
   steps:
     - internal/docker-push:
@@ -20,3 +27,10 @@ deploy:
         tag: latest
         repository: marvin/jekyll
         registry: https://registry.hub.docker.com
+
+  after-steps:
+    - wouter/irc-notify:
+        server: irc.freenode.net
+        port: 6667
+        nickname: wercker
+        channel: $IRC_CHANNEL

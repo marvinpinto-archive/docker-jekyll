@@ -21,12 +21,14 @@ build:
 
 deploy:
   steps:
-    - internal/docker-push:
-        username: $DOCKERHUB_USERNAME
-        password: $DOCKERHUB_PASSWORD
-        tag: latest
-        repository: marvin/jekyll
-        registry: https://registry.hub.docker.com
+    - script:
+        name: 'Push the built image to dockerhub'
+        code: |
+          sudo docker login \
+            --email=$DOCKERHUB_EMAIL \
+            --username=$DOCKERHUB_USERNAME \
+            --password=$DOCKERHUB_PASSWORD
+          sudo docker push marvin/jekyll
 
   after-steps:
     - wouter/irc-notify:

@@ -1,4 +1,5 @@
 box: wercker-labs/docker
+no-response-timeout: 20
 build:
   steps:
     - script:
@@ -21,14 +22,11 @@ build:
 
 deploy:
   steps:
-    - script:
-        name: 'Push the built image to dockerhub'
-        code: |
-          sudo docker login \
-            --email=$DOCKERHUB_EMAIL \
-            --username=$DOCKERHUB_USERNAME \
-            --password=$DOCKERHUB_PASSWORD
-          sudo docker push marvin/jekyll
+    - jakubriedl/docker-push:
+        image: marvin/jekyll
+        email: $DOCKERHUB_EMAIL
+        password: $DOCKERHUB_PASSWORD
+        username: $DOCKERHUB_USERNAME
 
   after-steps:
     - wouter/irc-notify:

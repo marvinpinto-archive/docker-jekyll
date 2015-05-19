@@ -5,3 +5,15 @@ build:
         name: 'Build the docker image'
         code: |
           sudo docker build --no-cache --rm -t marvin/jekyll .
+
+deploy:
+  steps:
+    - script:
+        name: 'Log into dockerhub'
+        code: |
+          sudo docker login -e "$DOCKERHUB_EMAIL" -u "$DOCKERHUB_USERNAME" -p "$DOCKERHUB_PASSWORD"
+
+    - script:
+        name: 'Push the image to dockerhub'
+        code: |
+          docker push marvin/jekyll:latest

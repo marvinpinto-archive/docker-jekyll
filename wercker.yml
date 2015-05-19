@@ -2,6 +2,12 @@ box: wercker-labs/docker
 build:
   steps:
     - script:
+        name: 'Print out the docker version'
+        code: |
+          sudo docker -v
+
+  steps:
+    - script:
         name: 'Build the docker image'
         code: |
           sudo docker build --no-cache --rm -t marvin/jekyll .

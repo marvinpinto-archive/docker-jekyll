@@ -1,6 +1,6 @@
 # Jekyll Build Container
 
-[![wercker status](https://app.wercker.com/status/2154cacacdfbf55b59a73492cbd18e46/s "wercker status")](https://app.wercker.com/project/bykey/2154cacacdfbf55b59a73492cbd18e46)
+[![Circle CI](https://circleci.com/gh/marvinpinto/docker-jekyll.svg?style=svg)](https://circleci.com/gh/marvinpinto/docker-jekyll)
 
 Docker container used to build and deploy the
 [https://contention.io](https://contention.io) website.

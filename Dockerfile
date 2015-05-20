@@ -14,6 +14,7 @@ RUN apt-get update \
     zlib1g-dev \
     libcurl4-openssl-dev \
     build-essential \
+    python \
   && gem install --no-document bundler \
   && apt-get clean autoclean \
   && apt-get autoremove -y --purge \

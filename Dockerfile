@@ -5,7 +5,7 @@ RUN apt-get update \
   && apt-get install -y software-properties-common \
   && apt-add-repository -y ppa:brightbox/ruby-ng \
   && apt-get update \
-  && apt-get install -y aspell ruby2.2 ruby2.2-dev zlib1g-dev \
+  && apt-get install -y aspell ruby2.2 ruby2.2-dev zlib1g-dev libcurl4-openssl-dev \
   && gem install --no-document bundler \
   && apt-get install -y build-essential \
   && apt-get clean autoclean \

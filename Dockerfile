@@ -8,6 +8,7 @@ RUN apt-get update \
   && apt-get install -y aspell ruby2.2 ruby2.2-dev \
   && gem install --no-document bundler \
   && apt-get install -y build-essential \
-  && apt-get clean \
+  && apt-get clean autoclean \
   && apt-get autoremove -y --purge \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+  && rm -rf /var/lib/{apt,dpkg,cache,log}/

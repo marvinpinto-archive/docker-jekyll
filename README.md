@@ -8,3 +8,9 @@ Docker container used to build and deploy the
 Read through the source code at
 [marvinpinto/contention.io](https://github.com/marvinpinto/contention.io) for
 more details.
+
+The prebuilt docker container is available on [Docker Hub](https://registry.hub.docker.com/u/marvin/jekyll):
+
+```bash
+docker pull marvin/jekyll
+```

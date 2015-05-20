@@ -6,6 +6,8 @@ dependencies:
   override:
     - docker info
     - docker build --no-cache --rm -t marvin/jekyll .
+    - docker run -dit marvin/jekyll /bin/bash
+    - docker export `docker ps | grep "marvin/jekyll" | awk '{print $1}'` | docker import - marvin/jekyll
 
 test:
   override:
@@ -17,7 +19,5 @@ deployment:
     branch: master
     owner: marvinpinto
     commands:
-      - docker run -dit marvin/jekyll /bin/bash
-      - docker export `docker ps | grep "marvin/jekyll" | awk '{print $1}'` | docker import - marvin/jekyll
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push marvin/jekyll

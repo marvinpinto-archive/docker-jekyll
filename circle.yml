@@ -9,7 +9,8 @@ dependencies:
 
 test:
   override:
-    - /bin/true
+    - docker run -it marvin/jekyll /usr/local/bin/bundle --version
+    - "[[ $(docker run -it marvin/jekyll /usr/bin/ruby --version) =~ ruby\\ 2.2.2p95 ]]"
 
 deployment:
   hub:

@@ -1,5 +1,6 @@
 # Jekyll Build Container
 
+![unmaintained](http://img.shields.io/badge/status-unmaintained-red.png)
 [![Circle CI](https://circleci.com/gh/marvinpinto/docker-jekyll.svg?style=svg)](https://circleci.com/gh/marvinpinto/docker-jekyll)
 
 Docker container used to build and deploy the
